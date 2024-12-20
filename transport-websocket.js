@@ -14,7 +14,7 @@ function Transport(ip, port, logger) {
     if (typeof(window) != "undefined") this.ws.binaryType = 'arraybuffer';
     this.logger = logger;
 
-    this.ws.on('pong', () => this.is_alive = true);
+    //this.ws.on('pong', () => this.is_alive = true);
     this.ws.onopen = () => {
         this.is_alive = true;
         this.interval = setInterval(() => {
