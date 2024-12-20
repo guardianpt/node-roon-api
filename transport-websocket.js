@@ -10,7 +10,7 @@ function Transport(ip, port, logger) {
     this.interval = null;
     this.is_alive = null;
 
-    this.ws = new WebSocket("wss://" + ip + ":" + port + "/api");
+    this.ws = new WebSocket("wss://" + ip + ":" + port + "/roon");
     if (typeof(window) != "undefined") this.ws.binaryType = 'arraybuffer';
     this.logger = logger;
 
