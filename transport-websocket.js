@@ -14,16 +14,16 @@ function Transport(ip, port, logger) {
     if (typeof(window) != "undefined") this.ws.binaryType = 'arraybuffer';
     this.logger = logger;
 
-    //this.ws.on('pong', () => this.is_alive = true);
+    this.ws.addEventListener('pong', () => this.is_alive = true);
     this.ws.onopen = () => {
         this.is_alive = true;
         this.interval = setInterval(() => {
             if (this.is_alive === false) {
                 logger.log(`Roon API Connection to ${this.host}:${this.port} closed due to missed heartbeat`);
-                return this.ws.terminate();
+                return this.ws.close();
             }
             this.is_alive = false;
-            this.ws.ping();
+            this.ws.send("__ping__");
         }, 10000)
 
         this._isonopencalled = true;
