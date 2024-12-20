@@ -1,5 +1,7 @@
 "use strict";
 
+var Buffer = require("buffer/").Buffer
+
 function MooMessage(moo, msg, body) {
     this.moo = moo;
     this.msg = msg;

@@ -4,6 +4,8 @@ SOOD implements Roon Core discovery using UDP protocol
 
 "use strict";
 
+var Buffer = require("buffer/").Buffer
+
 var util    = require("util"),
     events  = require('events'),
     dgram   = require('dgram'),

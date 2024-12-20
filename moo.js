@@ -3,6 +3,8 @@ MOO uses the web socket to talk to the core via the provided API endpoints
  */
 "use strict";
 
+var Buffer = require("buffer/").Buffer
+
 function Moo(transport) {
     this.transport = transport;
     this.transport.moo = this;
